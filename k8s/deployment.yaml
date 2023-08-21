@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: node-app
+
+spec:
+  template:
+    metadata:
+      name: pod-node-app
+      labels:
+        env: production
+    spec:
+      containers:
+        - name: node-app
+          image: nodeapp:latest
+      ports:
+        - 80:80
+  selector:
+    matchLabels:
+      env: production
+  replicas: 2

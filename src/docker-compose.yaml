@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  react-app:
+        build:
+          context: .
+          dockerfile: Dockerfile
+        volumes:
+          - /var/www/app:/usr/share/
+        ports:
+          - 80:80
+  
