@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
   name: frontend-deployment
   labels:
-    app: node-app
+    app: react-app
 
 spec:
   template:
     metadata:
-      name: pod-node-app
+      name: pod-react-app
       labels:
         env: production
     spec:
       containers:
-        - name: node-app
+        - name: react-app
           image: nodeapp:latest
       ports:
         - 80:80
