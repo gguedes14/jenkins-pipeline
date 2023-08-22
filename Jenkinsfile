@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerapp = docker.build("react-app:latest", "-f ./src/Dockerfile .")
+                    dockerapp = docker.build("react-app:latest", "-f ./src/Dockerfile ./src")
                 }
             }
         }
