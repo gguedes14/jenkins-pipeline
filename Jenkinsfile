@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Starting Pipeline'
                 script {
-                    dockerapp = docker.build("react-app", '-f /src/Dockerfile')
+                    dockerapp = docker.build("react-app", '-f /src/Dockerfile', '/src')
                 }
             }
         }
