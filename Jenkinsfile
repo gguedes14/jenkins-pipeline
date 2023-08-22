@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage ('Pre-build') {
+        stage ('Build') {
             steps {
                 echo 'Starting Pipeline'
                 script {
-                    dockerapp = docker.build("react-app:latest", '-f ./src/Dockerfile ./src')
+                    dockerapp = docker.build("react-app", '-f /src/Dockerfile')
                 }
             }
         }
