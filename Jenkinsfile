@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage ('Build') {
+        stage('Build') {
             steps {
                 script {
-                    dockerapp = docker.build("react-app", '-f ./src/Dockerfile', './src')
+                    def dockerapp = docker.build("react-app:latest", "-f ./src/Dockerfile", "./src")
                 }
             }
         }
