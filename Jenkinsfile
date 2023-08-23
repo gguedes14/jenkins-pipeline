@@ -1,5 +1,9 @@
 pipeline {
-    agent any 
+    agent {
+        docker {
+            args -v '/var/run/docker.sock'
+        }
+    }
 
     stages {
         stage('Build') {
