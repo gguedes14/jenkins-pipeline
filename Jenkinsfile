@@ -1,11 +1,15 @@
 pipeline {
-    agent any 
+    agent any
+
+    environment {
+        DOCKER_BUILDKIT = '1'
+    }
 
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    dockerapp = docker.build(registry, "react-app", '-f /src/Dockerfile ./src')
+                    sh 'docker build -t react-app:latest -f ./src/Dockerfile ./src'
                 }
             }
         }
