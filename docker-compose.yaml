@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   jenkins:
+    restart: always
     image: jenkins/jenkins:lts
     user: root
     ports:
@@ -8,5 +9,5 @@ services:
       - 5000:5000
     container_name: jenkins
     volumes:
-      - /home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /home/ubuntu/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
