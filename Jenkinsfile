@@ -1,17 +1,11 @@
 pipeline {
-    agent {
-            docker {
-            image 'alpine:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
-    }
+    agent any 
 
     stages {
         stage('Build') {
             steps {
                 script {
-                    dockerapp = docker.build("react-app:latest", "-f ./src/Dockerfile .")
+                    sh "docker build -t react-app:latest -f Dockerfile ."
                 }
             }
         }
