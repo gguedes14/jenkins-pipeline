@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh "docker build -t react-app:latest -f /src/Dockerfile ."
+                    dockerapp = docker.build(registry, "react-app", '-f /src/Dockerfile ./src')
                 }
             }
         }
